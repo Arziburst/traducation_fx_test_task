@@ -74,6 +74,8 @@ npm run dev
 
 - The project **does not require external global variables**.
 - The `db.json` database is created automatically on first launch.
+- The frontend is available at **[http://localhost:3000/](http://localhost:3000/)** after starting.
+- The backend is available at **[http://localhost:4000/](http://localhost:4000/)** after starting.
 
 ---
 
