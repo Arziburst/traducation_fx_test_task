@@ -8,21 +8,9 @@ const themes = ["dark", "light", "auto"] as ThemeContextType["theme"][];
 export const ThemeToggle: React.FC = () => {
     const { toggleTheme, theme } = useTheme();
     const [isOpen, setIsOpen] = useState(false);
-    const [themeName, setThemeName] = useState<ThemeContextType["theme"]>(theme);
-
-    const getSystemTheme = () => {
-        return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-    };
 
     const handleThemeChange = (newTheme: ThemeContextType['theme']) => {
-        if (newTheme === "auto") {
-            toggleTheme(getSystemTheme());
-            setThemeName("auto");
-        } else {
-            toggleTheme(newTheme);
-            setThemeName(newTheme);
-        }
-
+        toggleTheme(newTheme);
         setIsOpen(false);
     };
 
@@ -45,7 +33,7 @@ export const ThemeToggle: React.FC = () => {
                 className="w-12 h-12 flex items-center justify-center rounded-full bg-dark dark:bg-light text-light dark:text-dark"
                 onClick={() => setIsOpen(!isOpen)}
             >
-                {iconResolver(themeName)}
+                {iconResolver(theme)}
             </button>
             {isOpen && (
                 <div className="top-0 h-40 absolute bg-dark dark:bg-light text-light dark:text-dark rounded-4xl flex flex-col items-center justify-between">

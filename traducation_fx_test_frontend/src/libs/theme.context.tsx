@@ -12,14 +12,18 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
     localStorage.getItem("theme") as ThemeContextType['theme'] || "auto"
   );
 
-  useEffect(() => {
-    document.documentElement.setAttribute("data-theme", theme);
-    localStorage.setItem("theme", theme);
-  }, [theme]);
+  const getSystemTheme = () => {
+    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  };
 
   const toggleTheme = (newTheme: ThemeContextType['theme']) => {
     setTheme(newTheme);
   };
+
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme === 'auto' ? getSystemTheme() : theme);
+    localStorage.setItem("theme", theme);
+  }, [theme]);
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
