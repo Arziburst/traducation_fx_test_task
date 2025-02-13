@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: ./traducation_fx_test_frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    environment:
+      - NODE_ENV=development
+    volumes:
+      - ./traducation_fx_test_frontend:/app
+      - /app/node_modules
+    command: ["npm", "run", "dev"]
+
+  backend:
+    build:
+      context: ./traducation_fx_test_api
+      dockerfile: Dockerfile
+    ports:
+      - "4000:4000"
+    environment:
+      - NODE_ENV=development
+    volumes:
+      - ./traducation_fx_test_api:/app
+      - /app/node_modules
+    command: ["npm", "run", "start:dev"]

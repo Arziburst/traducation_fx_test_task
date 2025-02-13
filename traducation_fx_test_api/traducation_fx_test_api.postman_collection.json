@@ -1,0 +1,83 @@
+{
+	"info": {
+		"_postman_id": "c0f917aa-408f-4089-b03a-a81ceb888ad2",
+		"name": "traducation_fx_test_api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7907196"
+	},
+	"item": [
+		{
+			"name": "localhost:4000/counter",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:4000/counter",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"counter"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:4000/counter?type=increment&step=2",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:4000/counter?type=increment&step=2",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"counter"
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": "increment"
+						},
+						{
+							"key": "step",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:4000/counter",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:4000/counter",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"counter"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

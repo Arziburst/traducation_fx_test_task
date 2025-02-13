@@ -1,0 +1,20 @@
+{
+  "name": "traducation-fx-test-task",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "install": "npm run install:frontend && npm run install:backend",
+    "install:frontend": "cd traducation_fx_test_frontend && npm install",
+    "install:backend": "cd traducation_fx_test_api && npm install",
+    "dev": "npm run dev:frontend & npm run dev:backend",
+    "dev:frontend": "cd traducation_fx_test_frontend && npm run dev",
+    "dev:backend": "cd traducation_fx_test_api && npm run start:dev",
+    "build": "npm run build:frontend && npm run build:backend",
+    "build:frontend": "cd traducation_fx_test_frontend && npm run build",
+    "build:backend": "cd traducation_fx_test_api && npm run build",
+    "start": "docker-compose up --build",
+    "clean": "rm -rf traducation_fx_test_frontend/node_modules traducation_fx_test_api/node_modules traducation_fx_test_api/dist"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
